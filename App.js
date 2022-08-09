@@ -4,8 +4,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 
-import { Home } from "./screens/Home.screen";
-import { Details } from "./screens/Details.screen";
+import { Home } from "./screens/Home";
+import { Details } from "./screens/Details";
 
 const Stack = createStackNavigator();
 
