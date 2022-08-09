@@ -6,36 +6,54 @@ import { COLORS, SIZES, FONTS, SHADOWS } from "../constants";
 export const CircleButton = ({ imgURL, handlePress, ...props }) => {
   return (
     <TouchableOpacity
-      style={[styles.circleButton, props]}
+      style={[styles().circleButton, props]}
       onPress={handlePress}
     >
-      <Image source={imgURL} resizeMode="contain" style={styles.icon} />
+      <Image source={imgURL} resizeMode="contain" style={styles().icon} />
     </TouchableOpacity>
   );
 };
 
-export const RectButton = () => {
+export const RectButton = ({ minWidth, fontSize, handlePress, ...props }) => {
   return (
-    <View>
-      <Text>RectButton</Text>
-    </View>
+    <TouchableOpacity
+      style={[styles(minWidth).rectButton, props]}
+      onPress={handlePress}
+    >
+      <Text style={styles(fontSize).buttonText}>Place a bid</Text>
+    </TouchableOpacity>
   );
 };
 
-const styles = StyleSheet.create({
-  circleButton: {
-    width: 40,
-    height: 40,
-    backgroundColor: COLORS.white,
-    position: "absolute",
-    borderRadius: SIZES.extraLarge,
-    alignItems: "center",
-    justifyContent: "center",
-    ...SHADOWS.light,
-  },
+const styles = (minWidth, fontSize) =>
+  StyleSheet.create({
+    circleButton: {
+      width: 40,
+      height: 40,
+      backgroundColor: COLORS.white,
+      position: "absolute",
+      borderRadius: SIZES.extraLarge,
+      alignItems: "center",
+      justifyContent: "center",
+      ...SHADOWS.light,
+    },
 
-  icon: {
-    width: 24,
-    height: 24,
-  },
-});
+    rectButton: {
+      backgroundColor: COLORS.primary,
+      borderRadius: SIZES.extraLarge,
+      minWidth: minWidth,
+      padding: SIZES.small,
+    },
+
+    icon: {
+      width: 24,
+      height: 24,
+    },
+
+    buttonText: {
+      fontFamily: FONTS.semiBold,
+      fontSize: fontSize,
+      color: COLORS.white,
+      textAlign: "center",
+    },
+  });
