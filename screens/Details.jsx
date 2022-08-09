@@ -59,7 +59,13 @@ export const Details = ({ route, navigation }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}
         ListHeaderComponent={
-          <DetailsHeader data={data} navigation={navigation} />
+          <>
+            <DetailsHeader data={data} navigation={navigation} />
+            <SubInfo />
+            <View style={styles.detailsDesc}>
+              <DetailsDesc data={data} />
+            </View>
+          </>
         }
       />
     </SafeAreaView>
@@ -94,5 +100,9 @@ const styles = StyleSheet.create({
   headerImage: {
     width: "100%",
     height: "100%",
+  },
+
+  detailsDesc: {
+    padding: SIZES.font,
   },
 });

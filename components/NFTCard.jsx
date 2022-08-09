@@ -27,7 +27,7 @@ export const NFTCard = ({ data }) => {
         <NFTTitle
           title={data.name}
           subTitle={data.creator}
-          titleSize={SIZES.large}
+          fontSize={SIZES.large}
           subTitleSize={SIZES.small}
         />
 

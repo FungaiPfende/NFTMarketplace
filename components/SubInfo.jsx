@@ -2,10 +2,16 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { SIZES, FONTS, COLORS, assets, SHADOWS } from "../constants";
 
-export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
+export const NFTTitle = ({
+  title,
+  subTitle,
+  titleSize,
+  subTitleSize,
+  ...props
+}) => {
   return (
     <View>
-      <Text style={styles(titleSize).nftTitle}>{title}</Text>
+      <Text style={[styles(titleSize).nftTitle, props]}>{title}</Text>
       <Text style={styles(subTitleSize).nftSubTitle}>{subTitle}</Text>
     </View>
   );
@@ -91,9 +97,10 @@ const styles = (index, titleSize, subTitleSize) =>
       paddingHorizontal: SIZES.font,
       paddingVertical: SIZES.base,
       backgroundColor: COLORS.white,
+      ...SHADOWS.medium,
+      borderRadius: SIZES.font,
       justifyContent: "center",
       alignItems: "center",
-      ...SHADOWS.medium,
       elevation: 1,
       maxWidth: "50%",
     },
