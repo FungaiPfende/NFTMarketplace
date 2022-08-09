@@ -2,18 +2,24 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { SIZES, FONTS, COLORS, assets, SHADOWS } from "../constants";
 
-export const NFTTitle = () => {
+export const NFTTitle = ({ title, subTitle, titleSize, subTitleSize }) => {
   return (
     <View>
-      <Text>NFTTitle</Text>
+      <Text style={styles(titleSize).nftTitle}>{title}</Text>
+      <Text style={styles(subTitleSize).nftSubTitle}>{subTitle}</Text>
     </View>
   );
 };
 
-export const EthPrice = () => {
+export const EthPrice = ({ price }) => {
   return (
-    <View>
-      <Text>EthPrice</Text>
+    <View style={styles().priceContainer}>
+      <Image
+        source={assets.eth}
+        resizeMode="contain"
+        style={styles().ethIcon}
+      />
+      <Text style={styles().ethPrice}>{price}</Text>
     </View>
   );
 };
@@ -65,7 +71,7 @@ export const SubInfo = () => {
   );
 };
 
-const styles = (index) =>
+const styles = (index, titleSize, subTitleSize) =>
   StyleSheet.create({
     subInfo: {
       width: "100%",
@@ -77,6 +83,7 @@ const styles = (index) =>
 
     people: {
       flexDirection: "row",
+      ...SHADOWS.medium,
     },
 
     imageCmp: {
@@ -91,7 +98,7 @@ const styles = (index) =>
       backgroundColor: COLORS.white,
       justifyContent: "center",
       alignItems: "center",
-      ...SHADOWS.light,
+      ...SHADOWS.medium,
       elevation: 1,
       maxWidth: "50%",
     },
@@ -105,6 +112,35 @@ const styles = (index) =>
     endDateText: {
       fontFamily: FONTS.semiBold,
       fontSize: SIZES.medium,
+      color: COLORS.primary,
+    },
+
+    nftTitle: {
+      fontFamily: FONTS.semiBold,
+      fontSize: titleSize,
+      color: COLORS.primary,
+    },
+
+    nftSubTitle: {
+      fontFamily: FONTS.regular,
+      fontSize: subTitleSize,
+      color: COLORS.primary,
+    },
+
+    priceContainer: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+
+    ethIcon: {
+      width: 20,
+      height: 20,
+      marginRight: 2,
+    },
+
+    ethPrice: {
+      fontFamily: FONTS.medium,
+      fontSize: SIZES.font,
       color: COLORS.primary,
     },
   });
