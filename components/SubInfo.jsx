@@ -37,12 +37,7 @@ export const ImageCmp = ({ imgUrl, index }) => {
 };
 
 export const People = () => {
-  const peopleArray = [
-    assets.person01,
-    assets.person02,
-    assets.person03,
-    assets.person04,
-  ];
+  const peopleArray = [assets.person02, assets.person03, assets.person04];
 
   return (
     <View style={styles().people}>

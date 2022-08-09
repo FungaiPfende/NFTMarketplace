@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, SafeAreaView, FlatList, StyleSheet } from "react-native";
 
-import { COLORS, NFTData } from "../constants";
+import { COLORS, NFTData, SIZES } from "../constants";
 
 import { NFTCard, HomeHeader, FocusedStatusBar } from "../components";
 
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
   background1: {
     height: 300,
     backgroundColor: COLORS.primary,
+    borderBottomRightRadius: SIZES.extraLarge,
+    borderBottomLeftRadius: SIZES.extraLarge,
   },
 
   background2: {
