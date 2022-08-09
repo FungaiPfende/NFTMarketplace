@@ -5,6 +5,21 @@ import { EthPrice, NFTTitle } from "./SubInfo";
 import { COLORS, SIZES, FONTS } from "../constants";
 
 export const DetailsDesc = ({ data }) => {
+  const [description, setDescription] = useState(
+    data.description.slice(0, 150)
+  );
+  const [readMore, setReadMore] = useState(false);
+
+  const handlePress = () => {
+    if (!readMore) {
+      setDescription(data.description);
+      setReadMore(true);
+    } else {
+      setDescription(data.description.slice(0, 150));
+      setReadMore(false);
+    }
+  };
+
   return (
     <>
       <View style={styles.nftTitle}>
@@ -22,7 +37,13 @@ export const DetailsDesc = ({ data }) => {
         <Text style={styles.descTitle}>Description:</Text>
 
         <View style={styles.descDetails}>
-          <Text style={styles.descText}>{data.description}</Text>
+          <Text style={styles.descText}>
+            {description}
+            {!readMore && "..."}
+            <Text style={styles.showOrHideText} onPress={handlePress}>
+              {readMore ? " Show Less" : " Read More"}
+            </Text>
+          </Text>
         </View>
       </View>
     </>
@@ -56,5 +77,11 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.regular,
     color: COLORS.secondary,
     lineHeight: SIZES.large,
+  },
+
+  showOrHideText: {
+    fontSize: SIZES.small,
+    fontFamily: FONTS.semiBold,
+    color: COLORS.primary,
   },
 });

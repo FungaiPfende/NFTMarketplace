@@ -118,10 +118,10 @@ const NFTData = [
   {
     id: "NFT-05",
     name: "Colorful circles",
-    creator: "David doe",
+    creator: "David Doe",
     price: 10.25,
     description:
-      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural.",
+      "The action painter abstract expressionists were directly influenced by automatism. Pollock channelled this into producing gestural. Nulla sed velit erat vitae leo sem inceptos diam fames arcu hendrerit, quis ultrices in eleifend posuere ipsum conubia porttitor felis.",
     image: assets.nft05,
     bids: [
       {

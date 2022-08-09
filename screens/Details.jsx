@@ -64,6 +64,11 @@ export const Details = ({ route, navigation }) => {
             <SubInfo />
             <View style={styles.detailsDesc}>
               <DetailsDesc data={data} />
+              {data.bids.length > 0 && (
+                <Text style={styles.currentBid}>
+                  {data.bids.length > 1 ? "Current Bids:" : "Current Bid:"}
+                </Text>
+              )}
             </View>
           </>
         }
@@ -104,5 +109,11 @@ const styles = StyleSheet.create({
 
   detailsDesc: {
     padding: SIZES.font,
+  },
+
+  currentBid: {
+    fontSize: SIZES.font,
+    fontFamily: FONTS.semiBold,
+    color: COLORS.primary,
   },
 });
