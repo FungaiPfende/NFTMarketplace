@@ -19,6 +19,24 @@ import {
   DetailsBid,
 } from "../components";
 
+const DetailsHeader = ({ data, navigation }) => (
+  <View style={styles.detailsHeader}>
+    <Image source={data.image} resizeMode="cover" style={styles.headerImage} />
+
+    <CircleButton
+      imgURL={assets.left}
+      handlePress={() => navigation.goBack()}
+      left={15}
+      top={StatusBar.currentHeight + 10}
+    />
+    <CircleButton
+      imgURL={assets.heart}
+      right={15}
+      top={StatusBar.currentHeight + 10}
+    />
+  </View>
+);
+
 export const Details = ({ route, navigation }) => {
   const { data } = route.params;
 
@@ -40,6 +58,9 @@ export const Details = ({ route, navigation }) => {
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}
+        ListHeaderComponent={
+          <DetailsHeader data={data} navigation={navigation} />
+        }
       />
     </SafeAreaView>
   );
