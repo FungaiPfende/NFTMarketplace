@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import { COLORS, SIZES, SHADOWS, assets } from "../constants";
 import { CircleButton, RectButton } from "./Buttons";
+import { SubInfo, NFTTitle, EthPrice } from "./SubInfo";
 
 export const NFTCard = ({ data }) => {
   const navigation = useNavigation();
@@ -19,6 +20,8 @@ export const NFTCard = ({ data }) => {
 
         <CircleButton imgURL={assets.heart} right={10} top={10} />
       </View>
+
+      <SubInfo />
     </View>
   );
 };
